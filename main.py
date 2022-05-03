@@ -1,6 +1,7 @@
 """
 VARIABLES
 """
+WEEKS_IN_MONTH = 4
 VAT_MULTIPLIER = 1.2 # 20% VAT
 WEEKLY_RENT_MIN = 2500 # in pennies (£1 = 100p)
 WEEKLY_RENT_MAX = 200000
@@ -69,7 +70,7 @@ def calculate_membership_fee(rent_amount: int, rent_period: str, organisation_un
         return int(fixed_membership_fee * VAT_MULTIPLIER)
     else:
         if rent_period == "month":
-            membership_fee = (rent_amount / 4)
+            membership_fee = (rent_amount / WEEKS_IN_MONTH)
         else:
             membership_fee = rent_amount
     # Minimum membership fee
