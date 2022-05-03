@@ -42,6 +42,5 @@ class test_calculate_membership_fee(unittest.TestCase):
         self.assertEqual(configResult.has_fixed_membership_fee, True)
         self.assertEqual(configResult.fixed_membership_fee, 45000)
 
-
-if __name__ == "__main":
+if __name__ == "__main__":
     unittest.main()
