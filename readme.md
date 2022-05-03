@@ -1,11 +1,11 @@
 # Python Membership Fee Coding Challenge
 
-Exercise description 
+## Exercise description 
 1. Implement a function: ```def calculate_membership_fee(rent_amount, rent_period, organisation_unit) -> 
 int``` 
 2. Define the model to represent the organisation structure. Resulting model should include the OrganisationUnit type. 
 
-Data model (feel free to adjust the model) 
+## Data model (feel free to adjust the model) 
 1. OrganisationUnit 
     - name: String 
     - config: OrganisationUnitConfig 
@@ -14,7 +14,7 @@ Data model (feel free to adjust the model)
     - has_fixed_membership_fee: Boolean 
     - fixed_membership_fee_amount: Integer 
 
-Requirements for calculate_membership_fee 
+## Requirements for calculate_membership_fee 
 1. Input 
     - rent_amount: Integer - rent amount between 1-int.max 
     - rent_period: String - [‘month’, ‘week’] 
