@@ -28,14 +28,18 @@ class test_calculate_membership_fee(unittest.TestCase):
         self.branchP = BranchUnit("Branch P", OrganisationUnitConfig(False, 0), self.areaD)
 
     def test_calculate_membership_success(self):
-        self.assertEqual(calculate_membership_fee(rent_amount=2600, rent_period="week", organisation_unit=self.branchA), 54000)
-        self.assertEqual(calculate_membership_fee(rent_amount=2600, rent_period="week", organisation_unit=self.branchB), 14400)
+        self.assertEqual(calculate_membership_fee(rent_amount=13000, rent_period="week", organisation_unit=self.branchA), 54000)
+        self.assertEqual(calculate_membership_fee(rent_amount=13000, rent_period="week", organisation_unit=self.branchB), 15600)
+        self.assertEqual(calculate_membership_fee(rent_amount=2600, rent_period="week", organisation_unit=self.branchK), 30000)
+        self.assertEqual(calculate_membership_fee(rent_amount=2600, rent_period="week", organisation_unit=self.branchM), 14400)
+        self.assertEqual(calculate_membership_fee(rent_amount=48000, rent_period="month", organisation_unit=self.branchN), 14400)
         
     def test_calculate_membership_failure(self):
         self.assertRaises(ValueError, calculate_membership_fee, rent_amount=2600, rent_period="weeka", organisation_unit=self.branchM)
         self.assertRaises(ValueError, calculate_membership_fee, rent_amount=2600, rent_period="months", organisation_unit=self.branchM)
-        self.assertRaises(ValueError, calculate_membership_fee, rent_amount=2400, rent_period="week", organisation_unit=self.branchM)
-        self.assertRaises(ValueError, calculate_membership_fee, rent_amount=200100, rent_period="week", organisation_unit=self.branchM)
+        self.assertRaises(ValueError, calculate_membership_fee, rent_amount=2400, rent_period="week", organisation_unit=self.branchO)
+        self.assertRaises(ValueError, calculate_membership_fee, rent_amount=200100, rent_period="week", organisation_unit=self.branchP)
+        self.assertRaises(ValueError, calculate_membership_fee, rent_amount=2600, rent_period="month", organisation_unit=self.branchI)
 
     def test_get_config_with_branchA_success(self):
         configResult = get_config(self.branchA)
